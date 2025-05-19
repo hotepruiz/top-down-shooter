@@ -1,0 +1,182 @@
+[gd_scene load_steps=13 format=3 uid="uid://b4k7llxhq2jyj"]
+
+[ext_resource type="Script" uid="uid://cr38ao3b5d1o6" path="res://main.gd" id="1_y2i5v"]
+[ext_resource type="PackedScene" uid="uid://bhvbys58s2bt3" path="res://Niveles/test luz.tscn" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bvcnlba3esvjb" path="res://Niveles/Muelle/NivelMuelle.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dy438rfhjaao3" path="res://mielda/caja para testear shader/caja.tscn" id="5_mj5dd"]
+[ext_resource type="PackedScene" uid="uid://bj14864xic24o" path="res://mielda/personaje_2_test.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://s5le02xq2lmc" path="res://Niveles/Assets/Esfera/Esfera.tscn" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://c7x28r64ato1u" path="res://Niveles/Assets/Barril/barril_amarillo_1.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://dtwrjv4yovl2s" path="res://Niveles/Assets/Caja/caja_1.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://ba422v36ha2tj" path="res://Armas/Pistolas/FNX45/modelo/fnx_45_modelo.tscn" id="9_kek77"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x44bo"]
+sky_top_color = Color(0.639404, 0.349373, 0.395723, 1)
+sky_horizon_color = Color(0.72236, 0.755548, 0.581119, 1)
+sky_curve = 0.135188
+ground_bottom_color = Color(0.160784, 0.215686, 0.266667, 1)
+
+[sub_resource type="Sky" id="Sky_tlac5"]
+sky_material = SubResource("ProceduralSkyMaterial_x44bo")
+
+[sub_resource type="Environment" id="Environment_3t7jr"]
+background_mode = 2
+background_color = Color(0.215686, 0.270588, 0.164706, 1)
+sky = SubResource("Sky_tlac5")
+ambient_light_source = 3
+ambient_light_color = Color(0.592555, 0.485901, 0.263111, 1)
+reflected_light_source = 2
+glow_enabled = true
+glow_normalized = true
+glow_blend_mode = 1
+volumetric_fog_density = 0.02
+volumetric_fog_emission = Color(0.493545, 0.493546, 0.493546, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_sky_affect = 0.0
+adjustment_brightness = 1.08
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_y2i5v")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3t7jr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.998355, -0.054227, 0.0186454, 0.0236431, 0.685495, 0.727693, -0.052242, -0.726055, 0.685649, 6.87983, 16.4337, 9.48752)
+light_color = Color(0.722324, 0.54599, 0.370398, 1)
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+
+[node name="nivel" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="nivel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48427, 18.9431)
+use_collision = true
+size = Vector3(10, 0.2, 47.8861)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="nivel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.81066, 2.65153, 0.0191393)
+use_collision = true
+size = Vector3(0.404053, 4.63135, 9.5108)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="nivel"]
+transform = Transform3D(-0.0209424, 0, -0.999781, 0, 1, 0, 0.999781, 0, -0.0209424, 0.383682, 3.32939, 27.5711)
+use_collision = true
+size = Vector3(0.404053, 18.3401, 9.5108)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="nivel"]
+transform = Transform3D(-0.0154282, 0, 0.999882, 0, 1, 0, -0.999882, 0, -0.0154282, 34.5758, 18.6228, 89.162)
+use_collision = true
+size = Vector3(0.404053, 29.9667, 23.2095)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="nivel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10766, 33.2248)
+light_color = Color(0.839216, 0.654902, 0, 1)
+light_energy = 3.444
+light_size = 0.194
+shadow_enabled = true
+omni_range = 10.048
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="nivel"]
+transform = Transform3D(0.995361, -0.0962106, -4.2055e-09, 0, -4.37114e-08, 1, -0.0962106, -0.995361, -4.35086e-08, -20.3572, 7.38027, 12.4061)
+light_color = Color(0.94123, 0.880425, 0.46474, 1)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 16.449
+spot_attenuation = 0.594604
+spot_angle = 28.9499
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="nivel"]
+transform = Transform3D(0.996539, -0.0626589, -0.0546327, 0.0525079, -0.0350719, 0.998004, -0.0644499, -0.997419, -0.0316604, -12.2068, 4.03813, 1.29033)
+light_color = Color(0.129412, 0.952941, 0.682353, 1)
+light_energy = 3.0
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+spot_range = 10.168
+spot_attenuation = 0.594604
+spot_angle = 40.7813
+
+[node name="TestLuz" parent="nivel" instance=ExtResource("2_7mycd")]
+transform = Transform3D(1, 0, 2.98023e-08, -3.57628e-07, 1, 0, 1.19209e-07, -5.96046e-07, 1, -17.4348, 1.01186, -3.62887)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="nivel"]
+transform = Transform3D(-0.84344, -0.121048, -0.523409, -0.185961, -0.848268, 0.495842, -0.504012, 0.515547, 0.692953, -0.234179, 6.70272, 25.9184)
+light_color = Color(0.129412, 0.952941, 0.682353, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 11.057
+shadow_enabled = true
+spot_range = 10.168
+spot_attenuation = 0.594604
+spot_angle = 21.59
+
+[node name="caja" parent="." instance=ExtResource("5_mj5dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.786502, 0.711704, 6.25601)
+
+[node name="caja2" parent="." instance=ExtResource("5_mj5dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 12)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50026, 3.05115, 18.8421)
+light_color = Color(0.997793, 0.734859, 0.695505, 1)
+light_energy = 6.581
+omni_range = 4.92842
+
+[node name="Esfera" parent="." instance=ExtResource("7_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2667, 5.3686, 22.3747)
+
+[node name="Esfera2" parent="." instance=ExtResource("7_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.26629, 3.07802, 20.3936)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0925, 3.78022, 3.94285)
+light_color = Color(0.423529, 1, 0.462745, 1)
+light_energy = 2.813
+omni_range = 6.18814
+
+[node name="personaje 2 test" parent="." instance=ExtResource("6_272bh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.71382, 3.85573, 4.40755)
+
+[node name="NivelMuelle" parent="." instance=ExtResource("5_lquwl")]
+transform = Transform3D(-0.127578, 0, 1.49456, 0, 1.5, 0, -1.49456, 0, -0.127578, -19.213, 1.2218, 11.3934)
+
+[node name="BarrilAmarillo1" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(0.564175, 0, -0.825655, 0, 1, 0, 0.825655, 0, 0.564175, -22.7115, 0.626175, 3.87702)
+
+[node name="BarrilAmarillo2" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.779, 0.626175, 6.0637)
+
+[node name="BarrilAmarillo3" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(0.614657, 0, 0.788795, 0, 1, 0, -0.788795, 0, 0.614657, -22.4082, 0.626176, 5.40286)
+
+[node name="BarrilAmarillo4" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.555425, 0, -0.831567, 0, 1, 0, 0.831567, 0, -0.555425, -22.5394, 2.66437, 5.11161)
+
+[node name="BarrilAmarillo5" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(0.0281659, 0, 0.999603, 0, 1, 0, -0.999603, 0, 0.0281659, -11.8608, 0.626174, 0.226846)
+
+[node name="BarrilAmarillo6" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(0.8266, -0.562791, 0, 0.562791, 0.8266, 0, 0, 0, 1, -13.4016, 1.56277, 2.3882)
+
+[node name="BarrilAmarillo7" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(0.999975, 0.000444915, 0.00708948, 0.00710343, -0.0626322, -0.998011, 0, 0.998037, -0.0626338, -15.4301, 1.06091, 1.63128)
+
+[node name="Caja1" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0012, 1.11654, 9.31424)
+
+[node name="Caja2" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(0.0714434, 0.995668, 0.0595054, 0.0164568, 0.0584731, -0.998153, -0.997309, 0.0722907, -0.012208, -31.0398, 1.11654, 11.9546)
+
+[node name="Caja3" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2589, 1.11654, 8.38836)
+
+[node name="Caja4" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(-0.205179, 0, -0.978724, 0, 1, 0, 0.978724, 0, -0.205179, -29.7367, 3.1159, 10.253)
+
+[node name="Caja5" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1165, 1.11654, 3.1636)
+
+[node name="Caja6" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(0.796407, 0.544418, 0.263334, -0.248416, 0.6915, -0.678319, -0.551385, 0.474802, 0.685958, -29.1943, 1.88484, -3.35122)
+
+[node name="fnx45" parent="." instance=ExtResource("9_kek77")]
+transform = Transform3D(0.597303, 0, -0.802015, 0, 1, 0, 0.802015, 0, 0.597303, -19.3402, 1.57131, 12.8254)

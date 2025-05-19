@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://of25ksna7f57"]
+
+[ext_resource type="Script" path="res://Armas/Rifles/sig/SIG.gd" id="1_6vda1"]
+[ext_resource type="AudioStream" uid="uid://ckgew34m1aus1" path="res://Armas/Rifles/sig/SIg Disparo.wav" id="2_g3uo2"]
+[ext_resource type="PackedScene" uid="uid://cbf5v55htemhb" path="res://Armas/Rifles/sig/cosas de modelo/sig_modelo modificable.tscn" id="2_xuqwd"]
+[ext_resource type="Script" path="res://Armas/Rifles/sig/AudioPlayerSonidoDisparos.gd" id="3_isnbu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d1m2u"]
+bounce = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7lxa"]
+size = Vector3(5.11475, 1.39307, 0.449158)
+
+[node name="Sig" type="Node3D" groups=["armas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000437945, 0)
+script = ExtResource("1_6vda1")
+"DañoBase" = 47.6
+SonidoDisparo = ExtResource("2_g3uo2")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_d1m2u")
+
+[node name="SIG" parent="RigidBody3D" instance=ExtResource("2_xuqwd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Marker cañon" type="Marker3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55649, 0.247852, 0)
+gizmo_extents = 1.08
+
+[node name="Marker corredera" type="Marker3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0344466, 0.328989, 0.0819305)
+
+[node name="Marker cargador" type="Marker3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.186469, -0.104216, 0.00278878)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0332031, -0.177001, 0.0369568)
+shape = SubResource("BoxShape3D_w7lxa")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636818, 0.258306, 0)
+script = ExtResource("3_isnbu")
+
+[connection signal="finished" from="RigidBody3D/AudioStreamPlayer3D" to="RigidBody3D/AudioStreamPlayer3D" method="_on_finished"]

@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://fot46jsvf3gj"
+path.s3tc="res://.godot/imported/muelle_Suelo para ladrillos.png-b4a8bd67732de967a8b7ad42b00e3dc7.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "7f47ee700a2c1416e2d883eaf4111e0d"
+}
+
+[deps]
+
+source_file="res://Niveles/Muelle/modelo/muelle_Suelo para ladrillos.png"
+dest_files=["res://.godot/imported/muelle_Suelo para ladrillos.png-b4a8bd67732de967a8b7ad42b00e3dc7.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

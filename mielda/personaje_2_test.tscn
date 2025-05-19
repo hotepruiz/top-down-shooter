@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj14864xic24o"]
+
+[ext_resource type="PackedScene" uid="uid://dycxmtlaepksc" path="res://mielda/personaje 2 test.glb" id="1_l0waj"]
+[ext_resource type="Material" uid="uid://br3jnnurgcfax" path="res://mielda/Material.tres" id="2_mvngv"]
+[ext_resource type="Script" uid="uid://dbrv7g44or4ey" path="res://mielda/Personaje2Test.gd" id="2_uwr7f"]
+
+[node name="personaje 2 test" instance=ExtResource("1_l0waj")]
+script = ExtResource("2_uwr7f")
+
+[node name="Cylinder_002" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_mvngv")

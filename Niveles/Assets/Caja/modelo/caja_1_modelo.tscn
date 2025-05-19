@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpn4fsi72nmrr"]
+
+[ext_resource type="PackedScene" uid="uid://bdd856064lkta" path="res://Niveles/Assets/Caja/modelo/caja_1.glb" id="1_kuvnk"]
+
+[node name="caja_1" instance=ExtResource("1_kuvnk")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

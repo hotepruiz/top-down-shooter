@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkmu8f8cee0xk"]
+
+[ext_resource type="PackedScene" uid="uid://d2qifcnahl83b" path="res://Niveles/Muelle/modelo/muelle.glb" id="1_uel41"]
+[ext_resource type="Material" uid="uid://bemxnayyyrweg" path="res://Niveles/Muelle/modelo/Ladrillos muelle.tres" id="2_htdkx"]
+[ext_resource type="Material" uid="uid://cd86fjqxjlh3w" path="res://Niveles/Muelle/modelo/Suelo muelle.tres" id="2_iffhf"]
+
+[node name="muelle" instance=ExtResource("1_uel41")]
+
+[node name="Puente" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_htdkx")
+surface_material_override/1 = ExtResource("2_iffhf")

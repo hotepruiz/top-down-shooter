@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7lxvbknghjwv"]
+
+[ext_resource type="PackedScene" uid="uid://eo0xiwltfycv" path="res://Niveles/Assets/Barril/modelo/barril_1.glb" id="1_6yhth"]
+[ext_resource type="Material" uid="uid://yhv1n0h2ll07" path="res://Niveles/Assets/Barril/modelo/Barril 1.tres" id="2_cgqrn"]
+
+[node name="barril_1" instance=ExtResource("1_6yhth")]
+
+[node name="Barril" parent="." index="0"]
+transform = Transform3D(4.1, 0, 0, 0, 4.1, 0, 0, 0, 4.1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_cgqrn")

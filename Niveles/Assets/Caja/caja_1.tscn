@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtwrjv4yovl2s"]
+
+[ext_resource type="PackedScene" uid="uid://cpn4fsi72nmrr" path="res://Niveles/Assets/Caja/modelo/caja_1_modelo.tscn" id="1_xkid2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oktoc"]
+size = Vector3(1.99533, 1.98969, 2.00385)
+
+[node name="Caja1" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00953674, 0.00451279, 0.00253296)
+shape = SubResource("BoxShape3D_oktoc")
+
+[node name="caja_1" parent="." instance=ExtResource("1_xkid2")]

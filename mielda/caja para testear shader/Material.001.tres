@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://boksx4hclr8ft"]
+
+[ext_resource type="Texture2D" uid="uid://in8s3pf7upae" path="res://mielda/caja para testear shader/caja_metal sig.png" id="1_ewlpb"]
+[ext_resource type="Shader" uid="uid://bl1lj2erim68f" path="res://shaders/main.gdshader" id="2_rs7v1"]
+[ext_resource type="Texture2D" uid="uid://dt0w0numlcrov" path="res://shaders/Sin título-1.png" id="3_i0svl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdwtg"]
+render_priority = 0
+shader = ExtResource("2_rs7v1")
+shader_parameter/texture_overlay = ExtResource("3_i0svl")
+shader_parameter/alpha = 1.0
+
+[resource]
+resource_name = "Material.001"
+next_pass = SubResource("ShaderMaterial_vdwtg")
+albedo_texture = ExtResource("1_ewlpb")
+roughness = 0.5

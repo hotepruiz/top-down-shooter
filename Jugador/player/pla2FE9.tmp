@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://cw74buxo1k6au"]
+
+[ext_resource type="Script" path="res://player/camara/Camera3D.gd" id="1_dexlf"]
+[ext_resource type="Script" path="res://player/player/personaje.gd" id="2_y5xth"]
+[ext_resource type="Script" path="res://player/player/Cabeza.gd" id="3_3pwty"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_up4n5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fcppw"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ift6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dqe0s"]
+
+[node name="Montura player" type="Node3D"]
+
+[node name="personaje" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_y5xth")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="personaje"]
+shape = SubResource("CapsuleShape3D_up4n5")
+
+[node name="Cabeza" type="MeshInstance3D" parent="personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26966, 0)
+mesh = SubResource("BoxMesh_fcppw")
+script = ExtResource("3_3pwty")
+
+[node name="Torso" type="MeshInstance3D" parent="personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.467039, 0)
+mesh = SubResource("BoxMesh_1ift6")
+
+[node name="Piernas" type="MeshInstance3D" parent="personaje"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -0.597572, 0)
+mesh = SubResource("BoxMesh_dqe0s")
+
+[node name="Montura camara" type="Node3D" parent="personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 20, 20)
+
+[node name="Camara" type="Camera3D" parent="personaje/Montura camara"]
+fov = 20.0
+script = ExtResource("1_dexlf")
+
+[node name="RayCast3D" type="RayCast3D" parent="personaje/Montura camara/Camara"]
+target_position = Vector3(0, 0, 0)
+
+[node name="Montura Cursor" type="Node3D" parent="personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.1456)

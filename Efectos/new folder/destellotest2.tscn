@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1uo1wa0oisvp"]
+
+[ext_resource type="ArrayMesh" uid="uid://dkn8cwk3d0yow" path="res://Efectos/asdasda/flash.res" id="1_spxw4"]
+[ext_resource type="Script" uid="uid://croawe8ru3rl2" path="res://Efectos/new folder/DestelloSig.gd" id="2_guobk"]
+
+[node name="Destellotest2" type="CPUParticles3D"]
+cast_shadow = 0
+amount = 1
+lifetime = 0.02
+explosiveness = 1.0
+local_coords = true
+mesh = ExtResource("1_spxw4")
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, -9, 0)
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+script = ExtResource("2_guobk")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0773, 0, 0)
+light_color = Color(1, 1, 0, 1)
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 8.07857

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7x28r64ato1u"]
+
+[ext_resource type="PackedScene" uid="uid://b7lxvbknghjwv" path="res://Niveles/Assets/Barril/modelo/barril_1_modelo.tscn" id="1_5okja"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5okja"]
+friction = 0.81
+rough = true
+bounce = 0.35
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hnoc3"]
+height = 1.01318
+radius = 0.357422
+
+[node name="BarrilAmarillo1" type="RigidBody3D"]
+mass = 4.125
+physics_material_override = SubResource("PhysicsMaterial_5okja")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.36361, 0, 1.46306, 0, 2, 0, -1.46306, 0, 1.36361, 0, 0.515381, 0)
+shape = SubResource("CylinderShape3D_hnoc3")
+
+[node name="barril_1" parent="." instance=ExtResource("1_5okja")]
+transform = Transform3D(0.454218, 0, -0.209013, 0, 0.5, 0, 0.209013, 0, 0.454218, 0, 0.556086, 0)

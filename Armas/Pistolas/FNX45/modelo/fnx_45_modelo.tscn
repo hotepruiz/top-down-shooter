@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba422v36ha2tj"]
+
+[ext_resource type="PackedScene" uid="uid://dudyerwuek2qk" path="res://Armas/Pistolas/FNX45/modelo/fnx45.glb" id="1_slnu4"]
+[ext_resource type="Material" uid="uid://dklri5hljse5n" path="res://Armas/Pistolas/FNX45/modelo/Corredera.tres" id="2_fdl80"]
+[ext_resource type="Material" uid="uid://uw1sr5x3rmc3" path="res://Armas/Pistolas/FNX45/modelo/Handle.tres" id="3_6o267"]
+[ext_resource type="Material" uid="uid://v6avus24r1ml" path="res://Armas/Pistolas/FNX45/modelo/Material.tres" id="4_tqkcf"]
+
+[node name="fnx45" instance=ExtResource("1_slnu4")]
+
+[node name="Corredera" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_fdl80")
+
+[node name="Handle" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_6o267")
+
+[node name="Barril" parent="." index="2"]
+transform = Transform3D(0.16157, -0.000567456, -0.000213689, 0.000479929, 0.191198, 0.000309875, 0.000212769, -0.000367451, 0.16157, 0.00462901, 1.3584, -1.49533e-05)
+surface_material_override/0 = ExtResource("4_tqkcf")

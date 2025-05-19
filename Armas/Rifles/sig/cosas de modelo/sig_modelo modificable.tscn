@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbf5v55htemhb"]
+
+[ext_resource type="PackedScene" uid="uid://yanaafypur5a" path="res://Armas/Rifles/sig/cosas de modelo/SIG .glb" id="1_qb7ig"]
+
+[sub_resource type="Animation" id="Animation_uesp7"]
+resource_name = "disparo"
+length = 0.2917
+tracks/0/type = "blend_shape"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("corredera:Key 1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0416667, 1, 0, 0.0833333, 1, 1, 0.125, 1, 0.896, 0.166667, 1, 0.648, 0.208333, 1, 0.352, 0.25, 1, 0.104, 0.291667, 1, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("corredera")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.106595, 0.312924, -0.12381, 0.0333333, 1, 0.106595, 0.312924, -0.12381, 0.0666667, 1, 0.50838, 0.312924, -0.12381, 0.1, 1, 0.748379, 0.312924, -0.12381, 0.133333, 1, 0.673379, 0.312924, -0.12381, 0.166667, 1, 0.540523, 0.312924, -0.12381, 0.2, 1, 0.381951, 0.312924, -0.12381, 0.233333, 1, 0.242666, 0.312924, -0.12381, 0.266667, 1, 0.148381, 0.312924, -0.12381, 0.291667, 1, 0.106595, 0.312924, -0.12381)
+
+[sub_resource type="Animation" id="Animation_5hall"]
+resource_name = "encoger corredera"
+length = 0.291667
+tracks/0/type = "blend_shape"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("corredera:Key 1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0416667, 1, 0, 0.0833333, 1, 1, 0.125, 1, 0.896, 0.166667, 1, 0.648, 0.208333, 1, 0.352, 0.25, 1, 0.104, 0.291667, 1, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("corredera")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.106595, 0.312924, -0.12381)
+tracks/2/type = "position_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("cargador")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_fp280"]
+resource_name = "mostrar cargador"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cargador:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mo7es"]
+resource_name = "mover corredera"
+length = 0.291667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("corredera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.106595, 0.312924, -0.12381, 0.0333333, 1, 0.106595, 0.312924, -0.12381, 0.0666667, 1, 0.50838, 0.312924, -0.12381, 0.1, 1, 0.748379, 0.312924, -0.12381, 0.133333, 1, 0.673379, 0.312924, -0.12381, 0.166667, 1, 0.540523, 0.312924, -0.12381, 0.2, 1, 0.381951, 0.312924, -0.12381, 0.233333, 1, 0.242666, 0.312924, -0.12381, 0.266667, 1, 0.148381, 0.312924, -0.12381, 0.291667, 1, 0.106595, 0.312924, -0.12381)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("cargador")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_m7ips"]
+resource_name = "ocultar cargador"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cargador:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o8k4v"]
+_data = {
+&"disparo": SubResource("Animation_uesp7"),
+&"encoger corredera": SubResource("Animation_5hall"),
+&"mostrar cargador": SubResource("Animation_fp280"),
+&"mover corredera": SubResource("Animation_mo7es"),
+&"ocultar cargador": SubResource("Animation_m7ips")
+}
+
+[node name="SIG " instance=ExtResource("1_qb7ig")]
+
+[node name="corredera" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106595, 0.312924, -0.12381)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="7"]
+libraries = {
+"": SubResource("AnimationLibrary_o8k4v")
+}
+speed_scale = 2.0

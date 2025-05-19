@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvcnlba3esvjb"]
+
+[ext_resource type="PackedScene" uid="uid://dkmu8f8cee0xk" path="res://Niveles/Muelle/modelo/muelle_modelo.tscn" id="1_0oxk6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0oxk6"]
+size = Vector3(33.5953, 1, 26.7525)
+
+[node name="NivelMuelle" type="Node3D"]
+
+[node name="muelle" parent="." instance=ExtResource("1_0oxk6")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.88321, 0, 0.468978, 0, 1, 0, -0.468978, 0, 0.88321, 9.11066, -1.23684, -7.59707)
+shape = SubResource("BoxShape3D_0oxk6")

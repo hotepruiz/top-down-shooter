@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://cw74buxo1k6au"]
+
+[ext_resource type="Script" uid="uid://tid7mjc0rufr" path="res://Jugador/player/personaje.gd" id="1_52c46"]
+[ext_resource type="PackedScene" uid="uid://dycxmtlaepksc" path="res://mielda/personaje 2 test.glb" id="2_68d6e"]
+[ext_resource type="Script" uid="uid://c28ygvspk1ly7" path="res://Jugador/camara/Camera3D.gd" id="3_jiyc5"]
+[ext_resource type="Script" uid="uid://dx051fsit8y1n" path="res://Jugador/player/MonturaCursor.gd" id="4_7gay2"]
+[ext_resource type="Script" uid="uid://ccstxqlpttjq3" path="res://Jugador/player/Marker.gd" id="5_shypv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_up4n5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fcppw"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dqe0s"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_thb61"]
+top_radius = 0.1
+bottom_radius = 0.1
+radial_segments = 5
+
+[node name="MonturaJugador" type="Node3D"]
+
+[node name="Personaje" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_52c46")
+
+[node name="MonturaArmaSecundaria" type="Marker3D" parent="Personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.342281, -0.759655)
+
+[node name="hitbox" type="CollisionShape3D" parent="Personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.133128, 0)
+shape = SubResource("CapsuleShape3D_up4n5")
+
+[node name="Cabeza" type="MeshInstance3D" parent="Personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26966, 0)
+mesh = SubResource("BoxMesh_fcppw")
+
+[node name="MonturaArmaPrimaria" type="Marker3D" parent="Personaje/Cabeza"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.381189, -1.11332, -1.47167)
+
+[node name="personaje 2 test" parent="Personaje" instance=ExtResource("2_68d6e")]
+
+[node name="Torso" type="MeshInstance3D" parent="Personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.467039, 0)
+
+[node name="Piernas" type="MeshInstance3D" parent="Personaje"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -0.597572, 0)
+mesh = SubResource("BoxMesh_dqe0s")
+
+[node name="Montura camara" type="Node3D" parent="Personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 20, 20)
+
+[node name="Camara" type="Camera3D" parent="Personaje/Montura camara"]
+current = true
+fov = 20.0
+size = 12.57
+far = 100.0
+script = ExtResource("3_jiyc5")
+
+[node name="Montura Cursor" type="Node3D" parent="Personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 10.0119)
+script = ExtResource("4_7gay2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Personaje/Montura Cursor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01338, 0)
+mesh = SubResource("CylinderMesh_thb61")
+
+[node name="Marcador" type="Marker3D" parent="Personaje/Montura Cursor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+gizmo_extents = 3.71
+script = ExtResource("5_shypv")

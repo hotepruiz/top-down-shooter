@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4k7llxhq2jyj"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_y2i5v"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_y2i5v")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(5, 0.2, 5)

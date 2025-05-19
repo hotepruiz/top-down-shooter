@@ -1,0 +1,10 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://53tdfxxv47qa"]
+
+[sub_resource type="Gradient" id="Gradient_htxyp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.064, 0.112, 0.304)
+colors = PackedColorArray(0, 0, 0, 1, 0.0364859, 0.0321313, 0.0386943, 1, 0.209477, 0.196134, 0.215892, 1, 0.912422, 0.905012, 0.916038, 1)
+
+[resource]
+gradient = SubResource("Gradient_htxyp")
+use_hdr = true
