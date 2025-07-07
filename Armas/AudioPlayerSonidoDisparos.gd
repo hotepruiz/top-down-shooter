@@ -6,5 +6,3 @@ func _ready():
 func suicidar():
 	self.queue_free()
 	await get_tree().process_frame
-	print("ppene")
-	print(self)

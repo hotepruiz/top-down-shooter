@@ -109,6 +109,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106595, 0.312924, -0.12381)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="7"]
 libraries = {
-"": SubResource("AnimationLibrary_o8k4v")
+&"": SubResource("AnimationLibrary_o8k4v")
 }
 speed_scale = 2.0

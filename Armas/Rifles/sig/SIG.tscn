@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://of25ksna7f57"]
+[gd_scene load_steps=9 format=3 uid="uid://of25ksna7f57"]
 
 [ext_resource type="Script" uid="uid://qtoul6veau8i" path="res://Armas/Rifles/sig/SIG.gd" id="1_6vda1"]
-[ext_resource type="PackedScene" uid="uid://b1uo1wa0oisvp" path="res://Efectos/new folder/destellotest2.tscn" id="2_ifcga"]
+[ext_resource type="PackedScene" uid="uid://b1uo1wa0oisvp" path="res://Efectos/Destellos de armas/SIG/destellotest2.tscn" id="2_8ecmt"]
 [ext_resource type="PackedScene" uid="uid://cbf5v55htemhb" path="res://Armas/Rifles/sig/cosas de modelo/sig_modelo modificable.tscn" id="2_xuqwd"]
 [ext_resource type="AudioStream" uid="uid://c0krktbgvip5e" path="res://Armas/Rifles/sig/SIg Disparo 2.wav" id="3_03co3"]
-[ext_resource type="Script" uid="uid://dsodumip4phen" path="res://Armas/Rifles/sig/AudioPlayerSonidoDisparos.gd" id="3_isnbu"]
+[ext_resource type="Script" uid="uid://dsodumip4phen" path="res://Armas/AudioPlayerSonidoDisparos.gd" id="3_isnbu"]
+[ext_resource type="PackedScene" uid="uid://bft0ywea0cy66" path="res://Proyectiles/Balas/bala1/Bala1.tscn" id="3_xc4cw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d1m2u"]
 
@@ -15,7 +16,8 @@ size = Vector3(5.11475, 1.39307, 0.449158)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.000437945, 0)
 script = ExtResource("1_6vda1")
 "DañoBase" = 47.6
-Destello = ExtResource("2_ifcga")
+Destello = ExtResource("2_8ecmt")
+Proyectil = ExtResource("3_xc4cw")
 SonidoDisparo = ExtResource("3_03co3")
 Cadencia = 599.7
 

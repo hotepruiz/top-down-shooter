@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqwglo72ixnfl"]
+
+[ext_resource type="PackedScene" uid="uid://dpqst5s4usfyl" path="res://Proyectiles/Balas/bala1/modelo/bala_test.glb" id="1_pt1f8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt1f8"]
+cull_mode = 2
+albedo_color = Color(2, 2, 0, 1)
+metallic_specular = 0.0
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 0.0
+
+[node name="bala_test" instance=ExtResource("1_pt1f8")]
+transform = Transform3D(0.993276, 0, 0.115769, 0, 1, 0, -0.115769, 0, 0.993276, 0, 0, 0)
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(-0.378053, 7.61203e-09, 0.0233612, 0, -0.378774, 1.2342e-07, 0.0233612, 1.23185e-07, 0.378053, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_pt1f8")

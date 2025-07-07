@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var MonturaArmaSecundaria: Marker3D = $"MonturaArmaSecundaria"
 #señales------------------------------------------------------------------------
 signal SeñalDisparo
+signal SeñalSoltarDisparo
 signal SeñalInteractuar
 
 #Armas--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ func _process(delta):
 func ManejarInputsSeñales():
 	if Input.is_action_pressed("ui_disparar"):
 		SeñalDisparo.emit()
+	
+	if Input.is_action_just_released("ui_disparar"):
+		SeñalSoltarDisparo.emit()
 	
 	if Input.is_action_pressed("ui_interactuar"):
 		SeñalInteractuar.emit()

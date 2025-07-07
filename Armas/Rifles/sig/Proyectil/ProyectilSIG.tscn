@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dulwkutg6k2em"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_gh273"]
-
-[node name="ProyectilSig" type="RigidBody3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_gh273")

@@ -3,22 +3,21 @@ var Utils3D = load("res://Utils/FuncionesExtraCuerpos3D.gd")
 
 #Elementos para rotar el arma-------------------
 @onready var cursor : Node3D = get_node("/root/Main/MonturaJugador/Personaje/Montura Cursor")
-@onready var CuerpoArma : Node3D = $RigidBody3D
-#Elementos del arma-------------------------------------------------------------
+@onready var MarcadorCursor : Node3D = get_node("/root/Main/MonturaJugador/Personaje/Montura Cursor/Marcador")
+@onready var Jugador : Node3D = get_node("/root/Main/MonturaJugador/Personaje")
+
+#Atributos del arma-------------------------------------------------------------
 @export_range(0, 1000,0.1) var DañoBase : float
 @export var Destello : PackedScene
 @export var Proyectil: PackedScene
 @export var SonidoDisparo : AudioStream
 @export_range(1, 700,0.1) var Cadencia : float
 
+#Elementos del arma-------------------------------------------------------------
 @onready var AudioPlayer : AudioStreamPlayer3D = $RigidBody3D/AudioStreamPlayer3D
+@onready var CuerpoArma : Node3D = $RigidBody3D
 @onready var AnimPlayer : AnimationPlayer
-
-#Elementos del jugador----------------------------------------------------------
-@onready var Jugador : Node3D = get_node("/root/Main/MonturaJugador/Personaje")
-@onready var MarkerCañon : Marker3D
-
-#Efectos------------------------------------------------------------------------
+@onready var MarkerCañon : Marker3D 
 #esto (Variable equipada) lo voy a usar como un bool de 3 estados
 #true= equipada, false= el arma esta tirada en el suelo
 #null = el arma esta guardad en un espacio de arma secunario, solo inactiva o algo
@@ -32,11 +31,7 @@ func _ready():
 	Equipada = false
 	AudioPlayer.stream = SonidoDisparo
 	
-	$Timer.timeout.connect(ActualizarSeñalDisparo)
-	ActualizarVelocidadAtaque()
-	
 	set_process(false)
-
 
 func _process(delta):
 	Utils3D.mirar_hacia_objetivo(CuerpoArma, cursor)
@@ -49,9 +44,7 @@ func Disparar():
 		InstanciarAudio()
 		AnimacionDisparo()
 		InstanciarProyectil()
-		$Timer.start()
 		ListaParaDisparar=false
-		print($RigidBody3D.freeze)
 	elif(ListaParaDisparar == false):
 		pass
 
@@ -67,6 +60,7 @@ func EquiparArma():
 	$RigidBody3D.global_position=self.global_position
 	#el arma comienza a poner atencion a las señales de disparo
 	Jugador.SeñalDisparo.connect(self.Disparar)
+	Jugador.SeñalSoltarDisparo.connect(self.ActualizarSeñalDisparo)
 	
 	Utils3D.mirar_hacia_objetivo(CuerpoArma, cursor)
 	set_process(true)
@@ -84,6 +78,7 @@ func TirarArma():
 	
 	#el arma deja de poner atencion a las señales de disparo
 	Jugador.SeñalDisparo.disconnect(self.Disparar)
+	Jugador.SeñalSoltarDisparo.disconnect(self.ActualizarSeñalDisparo)
 	set_process(false)
 
 func GuardarArma():
@@ -94,8 +89,8 @@ func GuardarArma():
 	$RigidBody3D.global_position=self.global_position
 	#el arma deja de poner atencion a las señales de disparo
 	Jugador.SeñalDisparo.disconnect(self.Disparar)
+	Jugador.SeñalSoltarDisparo.disconnect(self.ActualizarSeñalDisparo)
 	set_process(false)
-
 
 #Funciones secundarias --------------------------------------------------------
 func InstanciarProyectil():
@@ -116,6 +111,7 @@ func AnimacionDisparo():
 func Chispaso():
 	var NuevasParticulas=Destello.instantiate()
 	NuevasParticulas.position=MarkerCañon.position
+	NuevasParticulas.rotation=MarkerCañon.rotation
 	$RigidBody3D.add_child(NuevasParticulas)
 
 func InstanciarAudio():
@@ -124,9 +120,6 @@ func InstanciarAudio():
 	NuevoAudioPlayer.global_position=$RigidBody3D.global_position
 	NuevoAudioPlayer.pitch_scale+=randf_range(-0.07,0.07)
 	NuevoAudioPlayer.playing=true
-
-func ActualizarVelocidadAtaque():
-	$Timer.wait_time=(60/Cadencia)
 
 func ActualizarSeñalDisparo():
 	ListaParaDisparar=true

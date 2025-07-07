@@ -1,6 +1,7 @@
 extends Node3D
 
 var sig = preload("res://Armas/Rifles/sig/SIG.tscn")
+var fnx = preload("res://Armas/Pistolas/FNX45/FNX45.tscn")
 var PlayerScene = preload("res://Jugador/player/MonturaJugador.tscn")
 var Player :Node3D
 
@@ -13,6 +14,11 @@ func _ready():
 	add_child(sig2)
 	sig2.position=Vector3(0,3.722,11)
 	sig2.scale=Vector3(0.7,0.7,0.7)
+	
+	var fnx2 = fnx.instantiate()
+	add_child(fnx2)
+	fnx2.position=Vector3(0,10,11)
+	fnx2.scale=Vector3(0.7,0.7,0.7)
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 

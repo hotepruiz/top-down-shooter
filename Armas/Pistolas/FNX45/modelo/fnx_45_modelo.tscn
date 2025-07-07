@@ -1,13 +1,75 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba422v36ha2tj"]
+[gd_scene load_steps=9 format=3 uid="uid://ba422v36ha2tj"]
 
 [ext_resource type="PackedScene" uid="uid://dudyerwuek2qk" path="res://Armas/Pistolas/FNX45/modelo/fnx45.glb" id="1_slnu4"]
 [ext_resource type="Material" uid="uid://dklri5hljse5n" path="res://Armas/Pistolas/FNX45/modelo/Corredera.tres" id="2_fdl80"]
 [ext_resource type="Material" uid="uid://uw1sr5x3rmc3" path="res://Armas/Pistolas/FNX45/modelo/Handle.tres" id="3_6o267"]
 [ext_resource type="Material" uid="uid://v6avus24r1ml" path="res://Armas/Pistolas/FNX45/modelo/Material.tres" id="4_tqkcf"]
 
+[sub_resource type="Animation" id="Animation_r465f"]
+resource_name = "CorrederaAction"
+length = 0.291667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Corredera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.00756242, 1.27688, -0.154657, 0.0333333, 1, -0.00756242, 1.27688, -0.154657, 0.0666667, 1, -0.00756242, 1.27688, 0.566887, 0.1, 1, -0.00756242, 1.27688, 0.997889, 0.133333, 1, -0.00756242, 1.27688, 0.863201, 0.166667, 1, -0.00756242, 1.27688, 0.62461, 0.2, 1, -0.00756242, 1.27688, 0.339841, 0.233333, 1, -0.00756242, 1.27688, 0.089706, 0.266667, 1, -0.00756242, 1.27688, -0.0796163, 0.291667, 1, -0.00756242, 1.27688, -0.154657)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("martillo")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.41115, 0.00791172, -0.00351855, 0.911527)
+
+[sub_resource type="Animation" id="Animation_m34qf"]
+resource_name = "Cube_001Action_001"
+length = 0.291667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("martillo")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.41115, 0.00791172, -0.00351856, 0.911527, 0.0333333, 1, -0.41115, 0.00791172, -0.00351856, 0.911527, 0.0666667, 1, 0.0455165, 0.0054869, -0.00791214, 0.998917, 0.1, 1, 0.336859, 0.0029033, -0.0102094, 0.941495, 0.133333, 1, 0.299127, 0.00232953, -0.0106184, 0.954151, 0.166667, 1, 0.231171, 0.0016128, -0.010598, 0.972854, 0.2, 1, 0.14859, 0.000839997, -0.0104843, 0.988843, 0.233333, 1, 0.0751661, 0.00016597, -0.0104291, 0.997117, 0.266667, 1, 0.0252062, -0.00028777, -0.0104102, 0.999628, 0.291667, 1, 0.00303734, -0.00048806, -0.010417, 0.999941)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Corredera")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.00756242, 1.27688, -0.154657)
+
+[sub_resource type="Animation" id="Animation_tqkcf"]
+resource_name = "disparo"
+length = 0.27
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Corredera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.00756242, 1.27688, -0.154657, 0.0333333, 1, -0.00756242, 1.27688, 0.566887, 0.0666667, 1, -0.00756242, 1.27688, 0.997889, 0.1, 1, -0.00756242, 1.27688, 0.863201, 0.133333, 1, -0.00756242, 1.27688, 0.62461, 0.166667, 1, -0.00756242, 1.27688, 0.339841, 0.2, 1, -0.00756242, 1.27688, 0.089706, 0.233333, 1, -0.00756242, 1.27688, -0.0796163, 0.258333, 1, -0.00756242, 1.27688, -0.154657)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("martillo")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(-1.11759e-08, 1, -0.41115, 0.00791172, -0.00351856, 0.911527, 0.0333333, 1, 0.0455165, 0.0054869, -0.00791214, 0.998917, 0.0666667, 1, 0.336859, 0.0029033, -0.0102094, 0.941495, 0.1, 1, 0.299127, 0.00232953, -0.0106184, 0.954151, 0.133333, 1, 0.231171, 0.0016128, -0.010598, 0.972854, 0.166667, 1, 0.14859, 0.000839997, -0.0104843, 0.988843, 0.2, 1, 0.0751661, 0.00016597, -0.0104291, 0.997117, 0.233333, 1, 0.0252062, -0.00028777, -0.0104102, 0.999628, 0.258333, 1, 0.00303734, -0.00048806, -0.010417, 0.999941)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_148d2"]
+_data = {
+&"CorrederaAction": SubResource("Animation_r465f"),
+&"Cube_001Action_001": SubResource("Animation_m34qf"),
+&"disparo": SubResource("Animation_tqkcf")
+}
+
 [node name="fnx45" instance=ExtResource("1_slnu4")]
 
 [node name="Corredera" parent="." index="0"]
+transform = Transform3D(0.900421, 0, 0, 0, 1, 0, 0, 0, 1, -0.00756242, 1.27688, -0.154657)
 surface_material_override/0 = ExtResource("2_fdl80")
 
 [node name="Handle" parent="." index="1"]
@@ -16,3 +78,12 @@ surface_material_override/0 = ExtResource("3_6o267")
 [node name="Barril" parent="." index="2"]
 transform = Transform3D(0.16157, -0.000567456, -0.000213689, 0.000479929, 0.191198, 0.000309875, 0.000212769, -0.000367451, 0.16157, 0.00462901, 1.3584, -1.49533e-05)
 surface_material_override/0 = ExtResource("4_tqkcf")
+
+[node name="martillo" parent="." index="3"]
+transform = Transform3D(0.999781, 0.0208298, -0.00103934, -0.0208357, 0.999765, -0.00606415, 0.000912782, 0.00608449, 0.999981, -0.00151431, 1.03949, 2.29476)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="10"]
+libraries = {
+&"": SubResource("AnimationLibrary_148d2")
+}
+speed_scale = 3.0
