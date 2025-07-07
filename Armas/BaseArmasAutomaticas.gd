@@ -27,6 +27,7 @@ var ListaParaDisparar : bool = true
 
 func _ready():
 	#TODO: recordar asignar el animation player en un script heredado
+
 	add_to_group("Armas")
 	
 	Equipada = false

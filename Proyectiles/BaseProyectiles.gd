@@ -7,3 +7,10 @@ func _ready():
 
 func init(direccion: Vector3):
 	self.apply_central_impulse(direccion.normalized() * 3)
+
+func _on_body_entered(body: Node) -> void:
+	suicidar()
+
+func suicidar():
+	self.queue_free()
+	await get_tree().process_frame

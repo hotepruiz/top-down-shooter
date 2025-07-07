@@ -80,7 +80,7 @@ transform = Transform3D(0.16157, -0.000567456, -0.000213689, 0.000479929, 0.1911
 surface_material_override/0 = ExtResource("4_tqkcf")
 
 [node name="martillo" parent="." index="3"]
-transform = Transform3D(0.999781, 0.0208298, -0.00103934, -0.0208357, 0.999765, -0.00606415, 0.000912782, 0.00608449, 0.999981, -0.00151431, 1.03949, 2.29476)
+transform = Transform3D(0.999848, -9.12976e-05, 0.0173168, -0.0129203, 0.661887, 0.749492, -0.0115302, -0.749604, 0.661786, -0.00151431, 1.03949, 2.29476)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="10"]
 libraries = {

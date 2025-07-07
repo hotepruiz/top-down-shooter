@@ -13,6 +13,8 @@ var Utils3D = load("res://Utils/FuncionesExtraCuerpos3D.gd")
 @export var SonidoDisparo : AudioStream
 @export_range(1, 700,0.1) var Cadencia : float
 
+@export_range(1, 700,1) var TamañoCargador : int
+
 #Elementos del arma-------------------------------------------------------------
 @onready var AudioPlayer : AudioStreamPlayer3D = $RigidBody3D/AudioStreamPlayer3D
 @onready var CuerpoArma : Node3D = $RigidBody3D
@@ -23,10 +25,13 @@ var Utils3D = load("res://Utils/FuncionesExtraCuerpos3D.gd")
 #null = el arma esta guardad en un espacio de arma secunario, solo inactiva o algo
 var Equipada : Variant = false
 var ListaParaDisparar : bool = true
+var balas: int 
 
 func _ready():
 	#TODO: recordar asignar el animation player en un script heredado
 	add_to_group("Armas")
+	
+	balas = TamañoCargador
 	
 	Equipada = false
 	AudioPlayer.stream = SonidoDisparo
@@ -37,13 +42,14 @@ func _process(delta):
 	Utils3D.mirar_hacia_objetivo(CuerpoArma, cursor)
 
 
-#Funciones principales --------------------------------------------------------
+#Funciones principales ---------------------------------------------------------
 func Disparar():
-	if(ListaParaDisparar == true):
+	if(ListaParaDisparar == true and balas > 0):
 		Chispaso()
 		InstanciarAudio()
 		AnimacionDisparo()
 		InstanciarProyectil()
+		ManejarMunicion()
 		ListaParaDisparar=false
 	elif(ListaParaDisparar == false):
 		pass
@@ -92,7 +98,7 @@ func GuardarArma():
 	Jugador.SeñalSoltarDisparo.disconnect(self.ActualizarSeñalDisparo)
 	set_process(false)
 
-#Funciones secundarias --------------------------------------------------------
+#Funciones secundarias----------------------------------------------------------
 func InstanciarProyectil():
 	var proyectil_nuevo = Proyectil.instantiate()
 	var nivel=get_node("/root/Main")
@@ -105,6 +111,22 @@ func InstanciarProyectil():
 	
 	proyectil_nuevo.init((cursor.get_node("Marcador").global_position  - MarkerCañon.global_position ))
 
+func ManejarMunicion():
+	if(balas == 0):
+		print("recargar")
+	else:
+		balas -= 1
+		print(balas)
+	
+
+func Recargar():
+	if(balas < TamañoCargador):
+		balas = TamañoCargador
+		print("Recargando arma")
+		return
+	if(balas == TamañoCargador or balas > TamañoCargador):
+		return
+#Funciones terciarias ----------------------------------------------------------
 func AnimacionDisparo():
 	pass
 

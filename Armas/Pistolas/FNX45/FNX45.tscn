@@ -19,6 +19,7 @@ script = ExtResource("1_gul5x")
 Destello = ExtResource("2_368jp")
 Proyectil = ExtResource("3_0k1f5")
 SonidoDisparo = ExtResource("3_vxty7")
+"TamañoCargador" = 10
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 mass = 119.378

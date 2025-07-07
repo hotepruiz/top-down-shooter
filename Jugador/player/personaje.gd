@@ -35,14 +35,21 @@ func _process(delta):
 	mover_cabeza()
 	mover_torso()
 
-
+	
 #inputs/Controles/señales----------------------------------------------------------------------
 func ManejarInputsSeñales():
+	#armas----------------------------------------------------------------------
 	if Input.is_action_pressed("ui_disparar"):
 		SeñalDisparo.emit()
 	
 	if Input.is_action_just_released("ui_disparar"):
 		SeñalSoltarDisparo.emit()
+	
+	if Input.is_action_pressed("ui_lanzarArma"):
+		LanzarArma()
+	
+	if Input.is_action_pressed("ui_recargar"):
+		RecargarArma()
 	
 	if Input.is_action_pressed("ui_interactuar"):
 		SeñalInteractuar.emit()
@@ -50,6 +57,7 @@ func ManejarInputsSeñales():
 	if Input.is_action_pressed("ui_lanzarArma"):
 		LanzarArma()
 
+#Armas--------------------------------------------------------------------------
 func EquiparArma(Arma: Node3D):
 	self.ArmaPrimaria=Arma
 	Arma.Equipada=true
@@ -65,7 +73,14 @@ func LanzarArma():
 	self.ArmaPrimaria.TirarArma()
 	self.ArmaPrimaria = null
 
-#Cosas de modelo -------------------------------------------------------------
+func RecargarArma():
+	if !self.ArmaPrimaria:
+		return
+	
+	self.ArmaPrimaria.Recargar()
+
+
+#Cosas de modelo ---------------------------------------------------------------
 func MoverArmas():
 	#print("mount:")
 	#print(MonturaArmaPrimaria.global_position)
