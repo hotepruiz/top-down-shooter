@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ba422v36ha2tj" path="res://Armas/Pistolas/FNX45/modelo/fnx_45_modelo.tscn" id="1_c53ky"]
 [ext_resource type="Script" uid="uid://craanm757xb4l" path="res://Armas/Pistolas/FNX45/FNX45.gd" id="1_gul5x"]
-[ext_resource type="PackedScene" uid="uid://b1uo1wa0oisvp" path="res://Efectos/Destellos de armas/SIG/destellotest2.tscn" id="2_368jp"]
+[ext_resource type="PackedScene" uid="uid://br8rw8o7peeoa" path="res://Efectos/Destellos de armas/destello2/destello2.tscn" id="2_vxty7"]
 [ext_resource type="PackedScene" uid="uid://bft0ywea0cy66" path="res://Proyectiles/Balas/bala1/Bala1.tscn" id="3_0k1f5"]
 [ext_resource type="Script" uid="uid://dsodumip4phen" path="res://Armas/AudioPlayerSonidoDisparos.gd" id="3_gul5x"]
 [ext_resource type="AudioStream" uid="uid://c0krktbgvip5e" path="res://Armas/Rifles/sig/SIg Disparo 2.wav" id="3_vxty7"]
@@ -15,8 +15,8 @@ size = Vector3(0.848877, 3.17926, 5.24855)
 
 [node name="Fnx45" type="Node3D" groups=["armas"]]
 script = ExtResource("1_gul5x")
-"DañoBase" = 178.6
-Destello = ExtResource("2_368jp")
+"DañoBase" = 140.1
+Destello = ExtResource("2_vxty7")
 Proyectil = ExtResource("3_0k1f5")
 SonidoDisparo = ExtResource("3_vxty7")
 "TamañoCargador" = 10
@@ -44,6 +44,7 @@ attenuation_model = 3
 volume_db = 26.667
 unit_size = 500.0
 max_db = 5.0
+bus = &"SonidoArmas"
 script = ExtResource("3_gul5x")
 
 [node name="Timer" type="Timer" parent="."]

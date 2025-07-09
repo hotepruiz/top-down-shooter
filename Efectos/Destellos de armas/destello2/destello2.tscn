@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://br8rw8o7peeoa"]
+
+[ext_resource type="Script" uid="uid://croawe8ru3rl2" path="res://Efectos/Destellos de armas/SIG/DestelloSig.gd" id="1_8orkc"]
+[ext_resource type="ArrayMesh" uid="uid://baqhhru3v64t0" path="res://Efectos/Destellos de armas/destello2/hola.res" id="2_d4htg"]
+
+[node name="CPUParticles3D" type="CPUParticles3D"]
+cast_shadow = 0
+amount = 1
+lifetime = 0.03
+explosiveness = 1.0
+local_coords = true
+mesh = ExtResource("2_d4htg")
+gravity = Vector3(0, -9, 0)
+scale_amount_min = 6.0
+scale_amount_max = 8.0
+script = ExtResource("1_8orkc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0773, 0, 0)
+light_color = Color(1, 1, 0, 1)
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 8.07857

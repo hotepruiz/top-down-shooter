@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dhijmfc5xfr22"]
+
+[ext_resource type="Texture2D" uid="uid://bd38dda0hl8db" path="res://Armas/SMG/MP7/modelo/mp7_corredera.png" id="1_8wr4i"]
+
+[resource]
+resource_name = "corredera"
+cull_mode = 2
+albedo_texture = ExtResource("1_8wr4i")
+roughness = 0.5

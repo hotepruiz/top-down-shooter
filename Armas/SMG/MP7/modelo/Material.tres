@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cyit4vy8nw5f5"]
+
+[ext_resource type="Texture2D" uid="uid://cebkivhwq8by8" path="res://Armas/SMG/MP7/modelo/mp7_barras.png" id="1_mq4af"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_mq4af")
+roughness = 0.5

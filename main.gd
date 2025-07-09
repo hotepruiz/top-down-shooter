@@ -1,6 +1,6 @@
 extends Node3D
 
-var sig = preload("res://Armas/Rifles/sig/SIG.tscn")
+var sig = preload("res://Armas/SMG/MP7/MP7.tscn")
 var fnx = preload("res://Armas/Pistolas/FNX45/FNX45.tscn")
 var PlayerScene = preload("res://Jugador/player/MonturaJugador.tscn")
 var Player :Node3D
@@ -12,7 +12,7 @@ func _ready():
 	
 	var sig2 = sig.instantiate()
 	add_child(sig2)
-	sig2.position=Vector3(0,3.722,11)
+	sig2.position=Vector3(4,3.722,11)
 	sig2.scale=Vector3(0.7,0.7,0.7)
 	
 	var fnx2 = fnx.instantiate()

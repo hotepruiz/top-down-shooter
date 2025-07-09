@@ -1,7 +1,9 @@
 extends Node3D
 
 
-# Called when the node enters the scene tree for the first time.
+# Esta funcion sirve para todas las particulas de las armas
+#de destello de las armas, solo hay que asegurarse de que la 
+#emision de la particula apunte a +X
 func _ready():
 	self.rotation.x=randf_range(-100,100)
 	self.emitting=true

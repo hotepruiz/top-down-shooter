@@ -1,10 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dklri5hljse5n"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://xv8g50tu3tg4"]
 
-[ext_resource type="Texture2D" uid="uid://1ehwnndb55m7" path="res://shaders/cellshading/cellshading_color_gradient2.tres" id="1_7dkkn"]
-[ext_resource type="Texture2D" uid="uid://dome47kx1edds" path="res://Armas/Pistolas/FNX45/modelo/fnx45_Corredera.png" id="1_tt0p7"]
-[ext_resource type="Texture2D" uid="uid://biprgq3l6rde5" path="res://shaders/cellshading/fresnel2.tres" id="2_peswo"]
+[ext_resource type="Texture2D" uid="uid://1ehwnndb55m7" path="res://shaders/cellshading/cellshading_color_gradient2.tres" id="1_ksxwn"]
+[ext_resource type="Texture2D" uid="uid://b4o4ddu462psb" path="res://Armas/SMG/MP7/modelo/mp7_cuerpomp7.png" id="1_ta5gk"]
+[ext_resource type="Texture2D" uid="uid://biprgq3l6rde5" path="res://shaders/cellshading/fresnel2.tres" id="2_572tb"]
 
-[sub_resource type="Shader" id="Shader_ga5dq"]
+[sub_resource type="Shader" id="Shader_ta5gk"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.4.stable's StandardMaterial3D.
 
 shader_type spatial;
@@ -64,13 +64,13 @@ void light() {
 "
 
 [resource]
-resource_name = "Corredera"
+resource_name = "cuerpo"
 render_priority = 0
-shader = SubResource("Shader_ga5dq")
+shader = SubResource("Shader_ta5gk")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("1_tt0p7")
-shader_parameter/albedo_texture_size = Vector2i(2048, 2048)
-shader_parameter/point_size = 1.0
+shader_parameter/texture_albedo = ExtResource("1_ta5gk")
+shader_parameter/albedo_texture_size = Vector2i(2800, 1500)
+shader_parameter/point_size = 0.1
 shader_parameter/roughness = 1.0
 shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/specular = 0.5
@@ -79,5 +79,5 @@ shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/gradiente_color = ExtResource("1_7dkkn")
-shader_parameter/gradiente_fresnel = ExtResource("2_peswo")
+shader_parameter/gradiente_color = ExtResource("1_ksxwn")
+shader_parameter/gradiente_fresnel = ExtResource("2_572tb")

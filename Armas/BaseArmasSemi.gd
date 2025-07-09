@@ -117,7 +117,7 @@ func ManejarMunicion():
 	else:
 		balas -= 1
 		print(balas)
-	
+
 
 func Recargar():
 	if(balas < TamañoCargador):

@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt2v70qdi7dqh"]
+
+[ext_resource type="Script" uid="uid://brvywxeq8c30o" path="res://Armas/SMG/MP7/MP7.gd" id="1_gxjbk"]
+[ext_resource type="PackedScene" uid="uid://c254delauoqwh" path="res://Armas/SMG/MP7/modelo/mp_7_modelo.tscn" id="1_tn5hu"]
+[ext_resource type="Script" uid="uid://dsodumip4phen" path="res://Armas/AudioPlayerSonidoDisparos.gd" id="2_afbm6"]
+[ext_resource type="PackedScene" uid="uid://br8rw8o7peeoa" path="res://Efectos/Destellos de armas/destello2/destello2.tscn" id="2_t6lut"]
+[ext_resource type="PackedScene" uid="uid://bft0ywea0cy66" path="res://Proyectiles/Balas/bala1/Bala1.tscn" id="3_63ym0"]
+[ext_resource type="AudioStream" uid="uid://c0krktbgvip5e" path="res://Armas/Rifles/sig/SIg Disparo 2.wav" id="4_2qi1t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tn5hu"]
+size = Vector3(0.450684, 2.13647, 4.64917)
+
+[node name="Mp7" type="Node3D"]
+script = ExtResource("1_gxjbk")
+Destello = ExtResource("2_t6lut")
+Proyectil = ExtResource("3_63ym0")
+SonidoDisparo = ExtResource("4_2qi1t")
+Cadencia = 1200.0
+"TamañoCargador" = 11
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="MP7" parent="RigidBody3D" instance=ExtResource("1_tn5hu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00366211, -0.388062, 0.00402832)
+shape = SubResource("BoxShape3D_tn5hu")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="RigidBody3D"]
+volume_db = 30.769
+unit_size = 500.0
+max_db = 4.462
+max_distance = 4096.0
+bus = &"SonidoArmas"
+script = ExtResource("2_afbm6")
+
+[node name="MarkerCañon" type="Marker3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.183653, -2.26787)
+gizmo_extents = 1.0
+
+[node name="Timer" type="Timer" parent="."]

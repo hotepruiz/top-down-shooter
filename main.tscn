@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4k7llxhq2jyj"]
+[gd_scene load_steps=13 format=3 uid="uid://b4k7llxhq2jyj"]
 
 [ext_resource type="Script" uid="uid://cr38ao3b5d1o6" path="res://main.gd" id="1_y2i5v"]
 [ext_resource type="PackedScene" uid="uid://bhvbys58s2bt3" path="res://Niveles/test luz.tscn" id="2_7mycd"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://s5le02xq2lmc" path="res://Niveles/Assets/Esfera/Esfera.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c7x28r64ato1u" path="res://Niveles/Assets/Barril/barril_amarillo_1.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dtwrjv4yovl2s" path="res://Niveles/Assets/Caja/caja_1.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://c254delauoqwh" path="res://Armas/SMG/MP7/modelo/mp_7_modelo.tscn" id="9_kek77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x44bo"]
 sky_top_color = Color(0.639404, 0.349373, 0.395723, 1)
@@ -176,3 +177,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1165, 1.11654, 3.1636)
 
 [node name="Caja6" parent="." instance=ExtResource("8_5vw27")]
 transform = Transform3D(0.796407, 0.544418, 0.263334, -0.248416, 0.6915, -0.678319, -0.551385, 0.474802, 0.685958, -29.1943, 1.88484, -3.35122)
+
+[node name="mp7" parent="." instance=ExtResource("9_kek77")]
+transform = Transform3D(0.966752, 0, 0.255716, 0, 1, 0, -0.255716, 0, 0.966752, -18.8149, 2.70402, 11.4654)

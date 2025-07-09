@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://c254delauoqwh"]
+
+[ext_resource type="PackedScene" uid="uid://b2j7n26pxkqey" path="res://Armas/SMG/MP7/modelo/mp7.glb" id="1_l81br"]
+[ext_resource type="Material" uid="uid://xv8g50tu3tg4" path="res://Armas/SMG/MP7/modelo/cuerpo.tres" id="2_6j24j"]
+[ext_resource type="Material" uid="uid://oditvvub6bxw" path="res://Armas/SMG/MP7/modelo/detalles.tres" id="2_bjvj1"]
+[ext_resource type="Material" uid="uid://bhubmr771iawc" path="res://Armas/SMG/MP7/modelo/Accesorios.tres" id="3_mtvfa"]
+
+[sub_resource type="Animation" id="Animation_rnwh6"]
+resource_name = "PlaneAction"
+length = 0.291667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1.15732, 0.214154, -0.0888731, 0.0333333, 1, 1.15732, 0.214154, -0.0888731, 0.0666667, 1, 1.46639, 0.214154, -0.0888731, 0.1, 1, 1.65102, 0.214154, -0.0888731, 0.133333, 1, 1.59332, 0.214154, -0.0888731, 0.166667, 1, 1.49112, 0.214154, -0.0888731, 0.2, 1, 1.36914, 0.214154, -0.0888731, 0.233333, 1, 1.26199, 0.214154, -0.0888731, 0.266667, 1, 1.18946, 0.214154, -0.0888731, 0.291667, 1, 1.15732, 0.214154, -0.0888731)
+
+[sub_resource type="Animation" id="Animation_bjvj1"]
+resource_name = "disparo"
+length = 0.3
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(3.35276e-08, 1, 1.15732, 0.214154, -0.0888731, 0.0333333, 1, 1.46639, 0.214154, -0.0888731, 0.0666667, 1, 1.65102, 0.214154, -0.0888731, 0.1, 1, 1.59332, 0.214154, -0.0888731, 0.133333, 1, 1.49112, 0.214154, -0.0888731, 0.166667, 1, 1.36914, 0.214154, -0.0888731, 0.2, 1, 1.26199, 0.214154, -0.0888731, 0.233333, 1, 1.18946, 0.214154, -0.0888731, 0.258333, 1, 1.15732, 0.214154, -0.0888731)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6cm2u"]
+_data = {
+&"PlaneAction": SubResource("Animation_rnwh6"),
+&"disparo": SubResource("Animation_bjvj1")
+}
+
+[node name="mp7" instance=ExtResource("1_l81br")]
+
+[node name="accesorios1" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bjvj1")
+
+[node name="accesorios2" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_bjvj1")
+
+[node name="rail" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_bjvj1")
+
+[node name="mira1" parent="." index="3"]
+surface_material_override/0 = ExtResource("2_bjvj1")
+
+[node name="mira2" parent="." index="4"]
+surface_material_override/0 = ExtResource("2_bjvj1")
+
+[node name="Cube" parent="." index="5"]
+surface_material_override/0 = ExtResource("2_bjvj1")
+
+[node name="Cargador" parent="." index="6"]
+surface_material_override/0 = ExtResource("3_mtvfa")
+
+[node name="Agarre" parent="." index="7"]
+surface_material_override/0 = ExtResource("3_mtvfa")
+
+[node name="handle" parent="." index="10"]
+surface_material_override/0 = ExtResource("2_bjvj1")
+
+[node name="cuerpo" parent="." index="11"]
+surface_material_override/0 = ExtResource("2_6j24j")
+
+[node name="Cylinder" parent="." index="13"]
+surface_material_override/0 = ExtResource("3_mtvfa")
+
+[node name="padding" parent="." index="14"]
+visible = false
+lod_bias = 0.001
+surface_material_override/0 = ExtResource("2_bjvj1")
+
+[node name="Plane" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15732, 0.214154, -0.0888731)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="17"]
+libraries = {
+&"": SubResource("AnimationLibrary_6cm2u")
+}
+speed_scale = 5.0

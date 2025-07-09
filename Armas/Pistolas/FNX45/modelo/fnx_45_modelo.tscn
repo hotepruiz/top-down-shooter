@@ -86,4 +86,4 @@ transform = Transform3D(0.999848, -9.12976e-05, 0.0173168, -0.0129203, 0.661887,
 libraries = {
 &"": SubResource("AnimationLibrary_148d2")
 }
-speed_scale = 3.0
+speed_scale = 0.2

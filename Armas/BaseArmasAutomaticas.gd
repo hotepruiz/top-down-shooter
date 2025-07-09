@@ -4,18 +4,20 @@ var Utils3D = load("res://Utils/FuncionesExtraCuerpos3D.gd")
 #Elementos para rotar el arma-------------------
 @onready var cursor : Node3D = get_node("/root/Main/MonturaJugador/Personaje/Montura Cursor")
 @onready var CuerpoArma : Node3D = $RigidBody3D
-#Elementos del arma-------------------------------------------------------------
+@onready var Jugador : Node3D = get_node("/root/Main/MonturaJugador/Personaje")
+
+#Atributos del arma-------------------------------------------------------------
 @export_range(0, 1000,0.1) var DañoBase : float
 @export var Destello : PackedScene
 @export var Proyectil: PackedScene
 @export var SonidoDisparo : AudioStream
-@export_range(1, 700,0.1) var Cadencia : float
+@export_range(1, 1200,0.1) var Cadencia : float
 
+@export_range(1, 700,1) var TamañoCargador : int
+
+#Elementos del arma----------------------------------------------------------
 @onready var AudioPlayer : AudioStreamPlayer3D = $RigidBody3D/AudioStreamPlayer3D
 @onready var AnimPlayer : AnimationPlayer
-
-#Elementos del jugador----------------------------------------------------------
-@onready var Jugador : Node3D = get_node("/root/Main/MonturaJugador/Personaje")
 @onready var MarkerCañon : Marker3D
 
 #Efectos------------------------------------------------------------------------
@@ -24,12 +26,12 @@ var Utils3D = load("res://Utils/FuncionesExtraCuerpos3D.gd")
 #null = el arma esta guardad en un espacio de arma secunario, solo inactiva o algo
 var Equipada : Variant = false
 var ListaParaDisparar : bool = true
-
+var balas: int 
 func _ready():
 	#TODO: recordar asignar el animation player en un script heredado
-
 	add_to_group("Armas")
 	
+	balas = TamañoCargador
 	Equipada = false
 	AudioPlayer.stream = SonidoDisparo
 	
@@ -45,11 +47,12 @@ func _process(delta):
 
 #Funciones principales --------------------------------------------------------
 func Disparar():
-	if(ListaParaDisparar == true):
+	if(ListaParaDisparar == true and balas > 0):
 		Chispaso()
 		InstanciarAudio()
 		AnimacionDisparo()
 		InstanciarProyectil()
+		ManejarMunicion()
 		$Timer.start()
 		ListaParaDisparar=false
 		print($RigidBody3D.freeze)
@@ -111,12 +114,30 @@ func InstanciarProyectil():
 	
 	proyectil_nuevo.init((cursor.get_node("Marcador").global_position  - MarkerCañon.global_position ))
 
+func ManejarMunicion():
+	if(balas == 0):
+		print("recargar")
+	else:
+		balas -= 1
+		print(balas)
+
+func Recargar():
+	if(balas < TamañoCargador):
+		balas = TamañoCargador
+		print("Recargando arma")
+		return
+	if(balas == TamañoCargador or balas > TamañoCargador):
+		return
+
+#Funciones terciarias --------------------------------------------------------
+
 func AnimacionDisparo():
 	pass
 
 func Chispaso():
 	var NuevasParticulas=Destello.instantiate()
 	NuevasParticulas.position=MarkerCañon.position
+	NuevasParticulas.rotation=MarkerCañon.rotation
 	$RigidBody3D.add_child(NuevasParticulas)
 
 func InstanciarAudio():
