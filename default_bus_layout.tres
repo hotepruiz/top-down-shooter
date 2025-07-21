@@ -9,7 +9,10 @@ threshold_db = -6.0
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_y8qhb"]
 resource_name = "Reverb"
-room_size = 0.31
+room_size = 0.41
+damping = 1.0
+spread = 0.33
+wet = 0.02
 
 [sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
 resource_name = "Chorus"

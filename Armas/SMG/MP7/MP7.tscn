@@ -5,18 +5,18 @@
 [ext_resource type="Script" uid="uid://dsodumip4phen" path="res://Armas/AudioPlayerSonidoDisparos.gd" id="2_afbm6"]
 [ext_resource type="PackedScene" uid="uid://br8rw8o7peeoa" path="res://Efectos/Destellos de armas/destello2/destello2.tscn" id="2_t6lut"]
 [ext_resource type="PackedScene" uid="uid://bft0ywea0cy66" path="res://Proyectiles/Balas/bala1/Bala1.tscn" id="3_63ym0"]
-[ext_resource type="AudioStream" uid="uid://c0krktbgvip5e" path="res://Armas/Rifles/sig/SIg Disparo 2.wav" id="4_2qi1t"]
+[ext_resource type="AudioStream" uid="uid://ed5ogbev67y7" path="res://Armas/SMG/MP7_audio_4.wav" id="5_2qi1t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tn5hu"]
-size = Vector3(0.450684, 2.13647, 4.64917)
+size = Vector3(0.450684, 2.24646, 4.64917)
 
 [node name="Mp7" type="Node3D"]
 script = ExtResource("1_gxjbk")
 Destello = ExtResource("2_t6lut")
 Proyectil = ExtResource("3_63ym0")
-SonidoDisparo = ExtResource("4_2qi1t")
+SonidoDisparo = ExtResource("5_2qi1t")
 Cadencia = 1200.0
-"TamañoCargador" = 11
+"TamañoCargador" = 20
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
@@ -24,13 +24,13 @@ Cadencia = 1200.0
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00366211, -0.388062, 0.00402832)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00366211, -0.333067, 0.00402832)
 shape = SubResource("BoxShape3D_tn5hu")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="RigidBody3D"]
-volume_db = 30.769
+attenuation_model = 3
 unit_size = 500.0
-max_db = 4.462
+max_db = 5.0
 max_distance = 4096.0
 bus = &"SonidoArmas"
 script = ExtResource("2_afbm6")

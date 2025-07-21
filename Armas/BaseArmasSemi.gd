@@ -39,7 +39,9 @@ func _ready():
 	set_process(false)
 
 func _process(delta):
+	Utils3D.rotar_verticalmente(CuerpoArma, cursor)
 	Utils3D.mirar_hacia_objetivo(CuerpoArma, cursor)
+	
 
 
 #Funciones principales ---------------------------------------------------------
@@ -57,6 +59,8 @@ func Disparar():
 func EquiparArma():
 	#actualizamos el estado y apagamos las fisicas
 	Equipada = true
+	
+	$RigidBody3D.rotation = Vector3(0,0,0)
 	
 	$RigidBody3D/CollisionShape3D.disabled = true
 	$RigidBody3D.freeze_mode = 0

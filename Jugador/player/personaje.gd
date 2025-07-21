@@ -89,11 +89,14 @@ func MoverArmas():
 
 func mover_cabeza():
 	mirar_hacia_objetivo(cabeza, cursor)
-	dibujar_linea(MonturaArmaPrimaria, cursor.get_node("Marcador"))
+	
+	if(ArmaPrimaria):
+		var nodo = ArmaPrimaria.get_node("RigidBody3D/MarkerCañon")
+		dibujar_linea(nodo, cursor.get_node("Marcador"))
 
 func mover_torso():
 	mirar_hacia_objetivo(torso2, cursor)
-	dibujar_linea(MonturaArmaPrimaria, cursor.get_node("Marcador"))
+	#dibujar_linea(MonturaArmaPrimaria, cursor.get_node("Marcador"))
 
 
 #Movimiento---------------------------------------------------------------------

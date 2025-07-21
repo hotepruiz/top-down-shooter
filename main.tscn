@@ -42,8 +42,8 @@ script = ExtResource("1_y2i5v")
 environment = SubResource("Environment_3t7jr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.998355, -0.054227, 0.0186454, 0.0236431, 0.685495, 0.727693, -0.052242, -0.726055, 0.685649, 6.87983, 16.4337, 9.48752)
-light_color = Color(0.722324, 0.54599, 0.370398, 1)
+transform = Transform3D(0.747481, -0.662853, 0.04358, 0.406712, 0.508534, 0.758933, -0.525222, -0.549563, 0.649709, 6.87983, 16.4337, 9.36531)
+light_color = Color(0.877301, 0.585424, 0.386232, 1)
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 

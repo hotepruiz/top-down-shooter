@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcbk2avxlkxln"]
+
+[ext_resource type="PackedScene" uid="uid://bxprd0y816qs2" path="res://mielda/test/kapkan.glb" id="1_7bgpl"]
+[ext_resource type="Script" uid="uid://p5pi0q2u247a" path="res://addons/jigglebones/jigglebone.gd" id="2_dedmh"]
+[ext_resource type="Shader" uid="uid://dehwwaf3ndaun" path="res://shaders/cellsahding.gdshader" id="2_ro45x"]
+[ext_resource type="Texture2D" uid="uid://1ehwnndb55m7" path="res://shaders/cellshading/cellshading_color_gradient2.tres" id="3_v2uei"]
+[ext_resource type="Texture2D" uid="uid://biprgq3l6rde5" path="res://shaders/cellshading/fresnel2.tres" id="4_owtgw"]
+[ext_resource type="Texture2D" uid="uid://c28y862vuqqit" path="res://mielda/test/kapkan_capucha.png" id="5_kgim6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m5flu"]
+render_priority = 0
+shader = ExtResource("2_ro45x")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_kgim6")
+shader_parameter/albedo_texture_size = Vector2i(1500, 1500)
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/gradiente_color = ExtResource("3_v2uei")
+shader_parameter/gradiente_fresnel = ExtResource("4_owtgw")
+
+[node name="kapkan" instance=ExtResource("1_7bgpl")]
+
+[node name="Armature_001" parent="." index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.0036, 0)
+
+[node name="capucha" parent="Armature_001/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_m5flu")
+
+[node name="Jigglebone" type="Node3D" parent="Armature_001/Skeleton3D" index="1"]
+transform = Transform3D(1.5, 7.00453e-11, -3.04124e-07, -1.68302e-07, -1.24918, -0.830386, -2.5331e-07, 0.830386, -1.24918, 0.0466563, 0.534006, 1.26187)
+top_level = true
+script = ExtResource("2_dedmh")
+bone_name = "Capucha R2"
+stiffness = 0.1
+damping = 10.0
+metadata/_custom_type_script = "uid://p5pi0q2u247a"
+
+[node name="Jigglebone2" type="Node3D" parent="Armature_001/Skeleton3D" index="2"]
+transform = Transform3D(1.49209, -0.153803, 0.00163498, -0.127069, -1.22361, 0.85827, -0.0866695, -0.853885, -1.23019, 0.0314458, -0.642633, 0.383774)
+top_level = true
+script = ExtResource("2_dedmh")
+bone_name = "Capucha L2"
+stiffness = 0.1
+damping = 10.0
+metadata/_custom_type_script = "uid://p5pi0q2u247a"

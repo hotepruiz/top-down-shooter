@@ -2,7 +2,7 @@ extends Node
 var Utils3D = load("res://Utils/FuncionesExtraCuerpos3D.gd")
 
 #Elementos para rotar el arma-------------------
-@onready var cursor : Node3D = get_node("/root/Main/MonturaJugador/Personaje/Montura Cursor")
+@onready var cursor : Node3D = get_node("/root/Main/MonturaJugador/Personaje/Montura Cursor/Marcador")
 @onready var CuerpoArma : Node3D = $RigidBody3D
 @onready var Jugador : Node3D = get_node("/root/Main/MonturaJugador/Personaje")
 
@@ -43,6 +43,7 @@ func _ready():
 
 func _process(delta):
 	Utils3D.mirar_hacia_objetivo(CuerpoArma, cursor)
+	Utils3D.rotar_verticalmente(CuerpoArma, cursor)
 
 
 #Funciones principales --------------------------------------------------------
@@ -63,6 +64,8 @@ func EquiparArma():
 	#actualizamos el estado y apagamos las fisicas
 	Equipada = true
 	
+	$RigidBody3D.rotation=Vector3(0,0,0)
+	
 	$RigidBody3D/CollisionShape3D.disabled = true
 	$RigidBody3D.freeze_mode = 0
 	$RigidBody3D.freeze = true
@@ -76,14 +79,14 @@ func EquiparArma():
 	set_process(true)
 
 func TirarArma():
-	Equipada = true
+	Equipada = false
 	
 	#prendemos las fisicas
 	$RigidBody3D/CollisionShape3D.disabled = false
 	$RigidBody3D.freeze_mode = 1
 	$RigidBody3D.freeze = false
 	
-	$RigidBody3D.apply_impulse(Vector3(100, 20, 0), Vector3(-1, 0, 0))
+	$RigidBody3D.apply_impulse(Vector3(5, 0, 0), Vector3(-1, 0, 0))
 	$RigidBody3D.apply_torque(Vector3(50, 0, 0))
 	
 	#el arma deja de poner atencion a las señales de disparo
@@ -112,7 +115,7 @@ func InstanciarProyectil():
 	proyectil_nuevo.global_position = MarkerCañon.global_position
 	proyectil_nuevo.rotation = MarkerCañon.global_rotation
 	
-	proyectil_nuevo.init((cursor.get_node("Marcador").global_position  - MarkerCañon.global_position ))
+	proyectil_nuevo.init(cursor.global_transform.origin  - MarkerCañon.global_transform.origin )
 
 func ManejarMunicion():
 	if(balas == 0):

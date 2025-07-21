@@ -8,6 +8,10 @@ func _ready():
 	self.rotation.x=randf_range(-100,100)
 	self.emitting=true
 	self.one_shot=true
+	
+	var tamaño = float(randf_range(0.9,1.1))
+	$OmniLight3D.light_energy=tamaño
+	
 	self.finished.connect(suicidar)
 	
 
