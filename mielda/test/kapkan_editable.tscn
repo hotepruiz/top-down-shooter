@@ -34,7 +34,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.0036, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_m5flu")
 
 [node name="Jigglebone" type="Node3D" parent="Armature_001/Skeleton3D" index="1"]
-transform = Transform3D(1.5, 7.00453e-11, -3.04124e-07, -1.68302e-07, -1.24918, -0.830386, -2.5331e-07, 0.830386, -1.24918, 0.0466563, 0.534006, 1.26187)
+transform = Transform3D(1.5, -2.99178e-09, 4.0007e-05, 2.21464e-05, -1.24915, -0.83044, 3.3318e-05, 0.83044, -1.24915, 0.0466566, 0.534006, 1.26187)
 top_level = true
 script = ExtResource("2_dedmh")
 bone_name = "Capucha R2"
@@ -43,7 +43,7 @@ damping = 10.0
 metadata/_custom_type_script = "uid://p5pi0q2u247a"
 
 [node name="Jigglebone2" type="Node3D" parent="Armature_001/Skeleton3D" index="2"]
-transform = Transform3D(1.49209, -0.153803, 0.00163498, -0.127069, -1.22361, 0.85827, -0.0866695, -0.853885, -1.23019, 0.0314458, -0.642633, 0.383774)
+transform = Transform3D(1.49209, -0.153803, 0.00136794, -0.126886, -1.22333, 0.8587, -0.0869314, -0.854289, -1.22989, 0.031446, -0.642633, 0.383774)
 top_level = true
 script = ExtResource("2_dedmh")
 bone_name = "Capucha L2"
