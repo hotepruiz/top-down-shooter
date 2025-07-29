@@ -2,6 +2,8 @@ extends Node3D
 
 var sig = preload("res://Armas/SMG/MP7/MP7.tscn")
 var fnx = preload("res://Armas/Pistolas/FNX45/FNX45.tscn")
+var moss = preload("res://Armas/Escopetas/Moss/Moss.tscn")
+
 var PlayerScene = preload("res://Jugador/player/MonturaJugador.tscn")
 var Player :Node3D
 
@@ -19,6 +21,11 @@ func _ready():
 	add_child(fnx2)
 	fnx2.position=Vector3(0,10,11)
 	fnx2.scale=Vector3(0.7,0.7,0.7)
+	
+	var moss2 = moss.instantiate()
+	add_child(moss2)
+	moss2.position=Vector3(-5,10,11)
+	moss2.scale=Vector3(1,1,1)
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 

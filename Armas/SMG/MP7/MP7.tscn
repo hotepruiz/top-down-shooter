@@ -12,11 +12,11 @@ size = Vector3(0.450684, 2.24646, 4.64917)
 
 [node name="Mp7" type="Node3D"]
 script = ExtResource("1_gxjbk")
+"TamañoCargador" = 20
+Cadencia = 1200.0
 Destello = ExtResource("2_t6lut")
 Proyectil = ExtResource("3_63ym0")
 SonidoDisparo = ExtResource("5_2qi1t")
-Cadencia = 1200.0
-"TamañoCargador" = 20
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c4ncvkcfpd0sd" path="res://Niveles/Assets/Barril/modelo/barril_1_Barril 1.png" id="1_5b4wq"]
 [ext_resource type="Texture2D" uid="uid://1ehwnndb55m7" path="res://shaders/cellshading/cellshading_color_gradient2.tres" id="1_hgkyu"]
-[ext_resource type="Gradient" uid="uid://g8mnxg3u7lrx" path="res://shaders/cellshading/fresnel_gradient.tres" id="2_hgkyu"]
+[ext_resource type="Gradient" uid="uid://g8mnxg3u7lrx" path="res://shaders/cellshading/no-fresnel.tres" id="2_hgkyu"]
 
 [sub_resource type="Shader" id="Shader_5b4wq"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.4.stable's StandardMaterial3D.

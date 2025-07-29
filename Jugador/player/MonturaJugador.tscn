@@ -37,7 +37,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 1.26966, 0)
 mesh = SubResource("BoxMesh_fcppw")
 
 [node name="kapkan" parent="Personaje/Cabeza" instance=ExtResource("2_lyasx")]
-transform = Transform3D(-0.11487, 0, 2.197, 0, 2.2, 0, -2.197, 0, -0.11487, -0.025848, 0.524022, 0.0526032)
+transform = Transform3D(-0.104427, 0, 1.99727, 0, 2, 0, -1.99727, 0, -0.104427, -0.106658, 0.438512, 0.15033)
 
 [node name="MonturaArmaPrimaria" type="Marker3D" parent="Personaje/Cabeza"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.381189, -1.11332, -1.47167)

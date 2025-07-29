@@ -1,5 +1,9 @@
 extends Node
 
+#Apagar/prender fisicas----------------------------------------------------------------------------
+
+
+#rotacion------------------------------------------------------------------------------------------
 static func mirar_hacia_objetivo(objeto_a_rotar: Node3D, objetivo: Node3D):
 	var direccion: Vector3 = (objetivo.global_transform.origin - objeto_a_rotar.global_transform.origin).normalized()
 	

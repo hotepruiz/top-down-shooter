@@ -15,29 +15,28 @@ size = Vector3(0.527605, 1.63077, 2.6288)
 
 [node name="Fnx45" type="Node3D" groups=["armas"]]
 script = ExtResource("1_gul5x")
+"TamañoCargador" = 10
 "DañoBase" = 140.1
 Destello = ExtResource("2_vxty7")
 Proyectil = ExtResource("3_0k1f5")
 SonidoDisparo = ExtResource("4_vxty7")
-"TamañoCargador" = 10
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-mass = 119.378
 physics_material_override = SubResource("PhysicsMaterial_368jp")
+
+[node name="fnx45" parent="RigidBody3D" instance=ExtResource("1_c53ky")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.234692, -0.0980397)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037508, -0.188614, -0.0623245)
 shape = SubResource("BoxShape3D_vxty7")
-
-[node name="fnx45" parent="RigidBody3D" instance=ExtResource("1_c53ky")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.234692, -0.0980397)
 
 [node name="MarkerCañon" type="Marker3D" parent="RigidBody3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00557803, 0.430917, -1.31403)
 gizmo_extents = 1.72
 
 [node name="MarkerCorredera" type="Marker3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.689179, 0.124702)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19082, 0.689179, 0.124702)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="RigidBody3D"]
 attenuation_model = 3

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxdt1instxpxo"
-path.s3tc="res://.godot/imported/kapkan_Chaqueta.png-723d6c6b500fab9258bffd8c520a0b36.s3tc.ctex"
+uid="uid://camwc1kqlxpww"
+path.s3tc="res://.godot/imported/mossenberg_Mossenberg 590.png-c9400d78dac4c1dd5474fb2a19a19643.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "21c6ba67d09e2c8359a54e3bbe58604a"
+"md5": "d1033ee5061496ed2fcf2fc04270775e"
 }
 
 [deps]
 
-source_file="res://mielda/chauqeta/kapkan_Chaqueta.png"
-dest_files=["res://.godot/imported/kapkan_Chaqueta.png-723d6c6b500fab9258bffd8c520a0b36.s3tc.ctex"]
+source_file="res://Armas/Escopetas/Moss/Modelo/mossenberg_Mossenberg 590.png"
+dest_files=["res://.godot/imported/mossenberg_Mossenberg 590.png-c9400d78dac4c1dd5474fb2a19a19643.s3tc.ctex"]
 
 [params]
 

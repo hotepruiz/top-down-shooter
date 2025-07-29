@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4k7llxhq2jyj"]
+[gd_scene load_steps=14 format=3 uid="uid://b4k7llxhq2jyj"]
 
 [ext_resource type="Script" uid="uid://cr38ao3b5d1o6" path="res://main.gd" id="1_y2i5v"]
 [ext_resource type="PackedScene" uid="uid://bhvbys58s2bt3" path="res://Niveles/test luz.tscn" id="2_7mycd"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7x28r64ato1u" path="res://Niveles/Assets/Barril/barril_amarillo_1.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dtwrjv4yovl2s" path="res://Niveles/Assets/Caja/caja_1.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c254delauoqwh" path="res://Armas/SMG/MP7/modelo/mp_7_modelo.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://b527hva7yyk2u" path="res://Armas/Escopetas/Moss/Modelo/mossenberg_editable.tscn" id="10_4c57u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x44bo"]
 sky_top_color = Color(0.639404, 0.349373, 0.395723, 1)
@@ -80,7 +81,6 @@ omni_range = 10.048
 [node name="SpotLight3D3" type="SpotLight3D" parent="nivel"]
 transform = Transform3D(0.995361, -0.0962106, -4.2055e-09, 0, -4.37114e-08, 1, -0.0962106, -0.995361, -4.35086e-08, -20.3572, 7.38027, 12.4061)
 light_color = Color(0.94123, 0.880425, 0.46474, 1)
-light_energy = 5.0
 shadow_enabled = true
 spot_range = 16.449
 spot_attenuation = 0.594604
@@ -180,3 +180,9 @@ transform = Transform3D(0.796407, 0.544418, 0.263334, -0.248416, 0.6915, -0.6783
 
 [node name="mp7" parent="." instance=ExtResource("9_kek77")]
 transform = Transform3D(0.966752, 0, 0.255716, 0, 1, 0, -0.255716, 0, 0.966752, -18.8149, 2.70402, 11.4654)
+
+[node name="mossenberg" parent="." instance=ExtResource("10_4c57u")]
+transform = Transform3D(0.651892, -0.757915, -0.0245221, 0.0907232, 0.110056, -0.989776, 0.752865, 0.643003, 0.140505, -16.8522, 4.01352, 7.0835)
+
+[node name="mossenberg2" parent="." instance=ExtResource("10_4c57u")]
+transform = Transform3D(-0.829386, 0, -1.81992, 0, 2, 0, 1.81992, 0, -0.829386, -23.2114, 4.05702, 8.88038)
