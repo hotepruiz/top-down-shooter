@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4k7llxhq2jyj"]
+[gd_scene load_steps=18 format=3 uid="uid://b4k7llxhq2jyj"]
 
 [ext_resource type="Script" uid="uid://cr38ao3b5d1o6" path="res://main.gd" id="1_y2i5v"]
 [ext_resource type="PackedScene" uid="uid://bhvbys58s2bt3" path="res://Niveles/test luz.tscn" id="2_7mycd"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dtwrjv4yovl2s" path="res://Niveles/Assets/Caja/caja_1.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c254delauoqwh" path="res://Armas/SMG/MP7/modelo/mp_7_modelo.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://b527hva7yyk2u" path="res://Armas/Escopetas/Moss/Modelo/mossenberg_editable.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://mo6lpipb04yp" path="res://Armas/Escopetas/Moss/Moss.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://cw74buxo1k6au" path="res://Jugador/player/MonturaJugador.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://bt2v70qdi7dqh" path="res://Armas/SMG/MP7/MP7.tscn" id="13_w48qg"]
+[ext_resource type="PackedScene" uid="uid://b8uax0lrt0yir" path="res://Armas/Pistolas/FNX45/FNX45.tscn" id="14_vivmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x44bo"]
 sky_top_color = Color(0.639404, 0.349373, 0.395723, 1)
@@ -38,6 +42,9 @@ adjustment_brightness = 1.08
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_y2i5v")
+
+[node name="MonturaJugador" parent="." instance=ExtResource("12_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7879, 27.0113, 30.7713)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3t7jr")
@@ -108,6 +115,11 @@ shadow_enabled = true
 spot_range = 10.168
 spot_attenuation = 0.594604
 spot_angle = 21.59
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="nivel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2281, 25.4, 30.5845)
+use_collision = true
+size = Vector3(6.89941, 0.42334, 6.83081)
 
 [node name="caja" parent="." instance=ExtResource("5_mj5dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.786502, 0.711704, 6.25601)
@@ -186,3 +198,12 @@ transform = Transform3D(0.651892, -0.757915, -0.0245221, 0.0907232, 0.110056, -0
 
 [node name="mossenberg2" parent="." instance=ExtResource("10_4c57u")]
 transform = Transform3D(-0.829386, 0, -1.81992, 0, 2, 0, 1.81992, 0, -0.829386, -23.2114, 4.05702, 8.88038)
+
+[node name="Moss" parent="." instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.12737, 0.692021, 7.10132)
+
+[node name="Mp7" parent="." instance=ExtResource("13_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96581, 1.53278, 7.07555)
+
+[node name="Fnx45" parent="." instance=ExtResource("14_vivmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54207, 1.57085, 8.04675)

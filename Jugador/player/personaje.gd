@@ -8,20 +8,28 @@ extends CharacterBody3D
 @onready var cursor: Node3D = $"Montura Cursor"
 @onready var torso2: Node3D = $"personaje 2 test"
 
-@onready var MonturaArmaPrimaria: Marker3D = $"Cabeza/MonturaArmaPrimaria"
-@onready var MonturaArmaSecundaria: Marker3D = $"MonturaArmaSecundaria"
 #señales------------------------------------------------------------------------
 signal SeñalDisparo
 signal SeñalSoltarDisparo
 signal SeñalInteractuar
+signal SeñalSoltarRecarga
 
 #Armas--------------------------------------------------------------------------
 @export var ArmaPrimaria: Node3D
 @export var ArmaSecundaria: Node3D
 
+@onready var MonturaArmaPrimaria: Marker3D = $"Cabeza/MonturaArmaPrimaria"
+@onready var MonturaArmaSecundaria: Marker3D = $"MonturaArmaSecundaria"
+
 #-------------------------------------------------------------------------------
+var tiempo_presionado := 0.0
+const TIEMPO_UMBRAL := 0.5  # segundos que debe mantenerse presionado
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+
+var test = false
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -31,14 +39,13 @@ func _ready():
 
 func _process(delta):
 	MoverArmas()
-	ManejarInputsSeñales()
+	ManejarInputsSeñales(delta)
 	mover_cabeza()
 	mover_torso()
 
-	
 #inputs/Controles/señales----------------------------------------------------------------------
-func ManejarInputsSeñales():
-	#armas----------------------------------------------------------------------
+func ManejarInputsSeñales(delta):
+	#armas-----------------------------------------------------
 	if Input.is_action_pressed("ui_disparar"):
 		SeñalDisparo.emit()
 	
@@ -48,14 +55,28 @@ func ManejarInputsSeñales():
 	if Input.is_action_pressed("ui_lanzarArma"):
 		LanzarArma()
 	
-	if Input.is_action_pressed("ui_recargar"):
-		RecargarArma()
-	
 	if Input.is_action_pressed("ui_interactuar"):
 		SeñalInteractuar.emit()
 	
 	if Input.is_action_pressed("ui_lanzarArma"):
 		LanzarArma()
+	
+	#Recarga--------------------------------------------------------------------
+	if Input.is_action_pressed("ui_recargar") and test == false:
+		test = true
+		RecargarArma()
+	
+	if Input.is_action_just_released("ui_recargar"):
+		test = false
+		SeñalSoltarDisparo.emit()
+	
+	#mantener presionado
+	if Input.is_action_pressed("ui_recargar"):
+		tiempo_presionado += delta
+		if tiempo_presionado >= TIEMPO_UMBRAL:
+			RecargarArmaSecundario()
+	else:
+		tiempo_presionado = 0.0  # Reiniciar si se suelta antes de llegar al umbral
 
 #Armas--------------------------------------------------------------------------
 func EquiparArma(Arma: Node3D):
@@ -79,11 +100,14 @@ func RecargarArma():
 	
 	self.ArmaPrimaria.Recargar()
 
+func RecargarArmaSecundario():
+	if !self.ArmaPrimaria:
+		return
+	
+	self.ArmaPrimaria.RecargarSecundario()
 
 #Cosas de modelo ---------------------------------------------------------------
 func MoverArmas():
-	#print("mount:")
-	#print(MonturaArmaPrimaria.global_position)
 	if(ArmaPrimaria):
 		ArmaPrimaria.global_position=MonturaArmaPrimaria.global_position
 

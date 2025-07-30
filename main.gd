@@ -9,6 +9,9 @@ var Player :Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+func _ready2():
 	Player=PlayerScene.instantiate()
 	add_child(Player)
 	

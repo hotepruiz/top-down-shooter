@@ -1,4 +1,4 @@
-extends "res://Armas/BaseArmasSemi.gd"
+extends "res://Armas/BaseArmasCerrojo.gd"
 
 
 func _ready():
@@ -8,5 +8,11 @@ func _ready():
 	AnimPlayer=$RigidBody3D/mossenberg/AnimationPlayer2
 
 func AnimacionDisparo():
-	AnimPlayer.play("disparo")
+	pass
 	
+
+func AnimacionAbrirCerrojo():
+	AnimPlayer.play("abrir_cerrojo")
+
+func AnimacionCerrarCerrojo():
+	AnimPlayer.play("cerrar_cerrojo")

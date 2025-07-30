@@ -13,7 +13,7 @@ func _ready():
 	Personaje.SeñalInteractuar.connect(ManejarInteraccion)
 	
 	#apuntar camara hacia personaje
-	self.look_at((get_parent().get_parent()).position)
+	self.look_at(Personaje.global_position)
 
 func _process(delta):
 	#cada frame se hace un raycast par amover el cursor

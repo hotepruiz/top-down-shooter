@@ -41,7 +41,7 @@ func _process(delta):
 	Utils3D.rotar_verticalmente(CuerpoArma, cursor)
 	Utils3D.mirar_hacia_objetivo(CuerpoArma, cursor)
 
-#Funciones de disparo ---------------------------------------------------------
+#Funciones de logica de disparo ---------------------------------------------------------
 func Disparar():
 	push_warning("Disparar() debe ser sobreescrito en el arma hija.")
 
@@ -60,6 +60,9 @@ func Recargar():
 	if(balas == TamañoCargador or balas > TamañoCargador):
 		return
 
+func RecargarSecundario():
+	push_warning("Esta arma no tiene mecanica secundaria de recarga o .")
+
 #Funciones de fisicas ---------------------------------------------------------
 func EquiparArma():
 	#actualizamos el estado y apagamos las fisicas
@@ -75,7 +78,6 @@ func EquiparArma():
 	$RigidBody3D.global_position=self.global_position
 	#el arma comienza a poner atencion a las señales de disparo
 	Jugador.SeñalDisparo.connect(self.Disparar)
-	Jugador.SeñalSoltarDisparo.connect(self.ActualizarSeñalDisparo)
 	
 	Utils3D.mirar_hacia_objetivo(CuerpoArma, cursor)
 	set_process(true)
@@ -93,7 +95,6 @@ func TirarArma():
 	
 	#el arma deja de poner atencion a las señales de disparo
 	Jugador.SeñalDisparo.disconnect(self.Disparar)
-	Jugador.SeñalSoltarDisparo.disconnect(self.ActualizarSeñalDisparo)
 	set_process(false)
 
 func GuardarArma():
@@ -104,7 +105,7 @@ func GuardarArma():
 	$RigidBody3D.global_position=self.global_position
 	#el arma deja de poner atencion a las señales de disparo
 	Jugador.SeñalDisparo.disconnect(self.Disparar)
-	Jugador.SeñalSoltarDisparo.disconnect(self.ActualizarSeñalDisparo)
+	
 	set_process(false)
 
 #Funciones de efectos de disparo ----------------------------------------------------------
